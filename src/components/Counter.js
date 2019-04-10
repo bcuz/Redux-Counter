@@ -14,6 +14,10 @@ class Counter extends Component {
     incrementAsync = () => {
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
+        // ES6 arrow function does not change the context of this
+        setTimeout(() => {
+            this.props.increment()            
+          }, 1000);
     };
 
     render() {
@@ -31,6 +35,9 @@ class Counter extends Component {
                 </button>
                 <button onClick={this.incrementIfOdd}>
                     Increment if odd
+                </button>
+                <button onClick={this.incrementAsync}>
+                    Increment async
                 </button>
                  {/* Uncomment these button tags if you got
                 around to implementing the extra credit functions */}
